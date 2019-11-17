@@ -14,7 +14,7 @@ if ($_GET['id']) {
 
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
    <title >Edit book</title>

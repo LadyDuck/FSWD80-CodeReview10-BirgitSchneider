@@ -29,6 +29,9 @@
    <table  class = "table table-bordered">
 
     <a href= "publisher.php"><button type="button" class="btn btn-success my-4">Show Publisher</button></a>
+
+    <a  href= "index.php"><button  type="button" class="btn btn-success my-4 ml-2" style ="width: 130px;">Home</button ></a > 
+
        <thead>
         
            <tr>
@@ -40,13 +43,18 @@
                <th>Published</th>
                <th>Publisher</th>
                <th>Type</th>
-               <th>Edit/Delite</th>
+               <th>Available</th>
            </tr>
        </thead>
        <tbody>
 
             <?php
-           $sql = "SELECT * FROM book WHERE active = 0";
+
+            
+            $media = $_GET['id'];
+          
+
+           $sql = "SELECT * FROM book WHERE id = {$media}";
            $result = $connect->query($sql);
            //$result = mysqli_query($connect, $sql);
            //print_r($result);
@@ -65,13 +73,7 @@
                        <td>".$row['published']."</td>
                        <td>".$row['publisher']."</td>
                        <td>".$row['type']."</td>
-                       <td>
-                           <a href='update.php?id=" .$row['id']."'><button type='button' class='btn btn-success mx-4' style ='width: 100px;'>Edit</button></a>
-                           <a href='delete.php?id=" .$row['id']."'><button type='button' class='btn btn-danger mx-4 my-2' style ='width: 100px;'>Delete</button></a>
-                           <a href='showmedia.php?id=" .$row['id']."'><button type='button' class='btn btn-success mx-4' style ='width: 100px;'>show more</button></a>
-                          
-
-                       </td>
+                       <td><b>".$row['available']."<b></td>
                    </tr>" ;
                }
            } else  {
@@ -89,3 +91,5 @@
 </body>
 </html>
 
+</body>
+</html>
